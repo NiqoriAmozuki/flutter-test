@@ -9,17 +9,22 @@ class DrawerWidget extends StatelessWidget {
         children: <Widget>[
           _drawerHeader(),
           _drawerItem(
-              icon: Icons.folder,
-              text: 'About Me',
-              onTap: () => print('Tap Recent menu')),
+            icon: Icons.folder,
+            text: 'About Me',
+            onTap: () => print('Tap Recent menu'),
+          ),
           _drawerItem(
-              icon: Icons.videogame_asset_rounded,
-              text: 'Game',
-              onTap: () => print('Tap Recent menu')),
+            icon: Icons.videogame_asset_rounded,
+            text: 'Game',
+            onTap: () {
+              Navigator.pushNamed(context, 'GamePage');
+            },
+          ),
           _drawerItem(
-              icon: Icons.delete,
-              text: 'What is this ?',
-              onTap: () => print('Tap Trash menu')),
+            icon: Icons.delete,
+            text: 'What is this ?',
+            onTap: () => print('Tap Trash menu'),
+          ),
           Divider(height: 25, thickness: 1),
         ],
       ),
@@ -30,8 +35,7 @@ class DrawerWidget extends StatelessWidget {
 Widget _drawerHeader() {
   return UserAccountsDrawerHeader(
     currentAccountPicture: ClipOval(
-      child: Image(
-          image: AssetImage('assets/images/Profile.png'), fit: BoxFit.cover),
+      child: Image(image: AssetImage('assets/images/Profile.png'), fit: BoxFit.cover),
     ),
     accountName: Text('Niqori'),
     accountEmail: Text('test@email.com'),
